@@ -11,10 +11,11 @@ The purpose of this presentation is to demonstrate Shiny's intreractive and reac
 
 
 The Shiny application is available by the following link: 
-https://ykotselko.shinyapps.io/ShinyApp/
+[https://ykotselko.shinyapps.io/ShinyApp/](https://ykotselko.shinyapps.io/ShinyApp)
 
 The Shiny application source code is hosted on GitHub: 
-https://github.com/shiny_app
+[https://github.com/ykotselko/shiny_app](https://github.com/ykotselko/shiny_app)
+<small>Please, use mouse Right click -> "Open Link in New Tab" option in order to open this link in a new tab.</small>
 
 The presentation has been prepared in RStudio Presenter.
 
@@ -22,7 +23,7 @@ The presentation has been prepared in RStudio Presenter.
 How it works
 ========================================================
 
-The app builds a linear models that show the relationship between transmission (manual and automatic) and MPG (miles / US gallon). By default our model looks like that: lm(mpg ~ am, data = mtcars). By selecting additional variables the model is being recomputed and the app displays appropriate models parameters accordingly.
+The app builds a linear model that shows the relationship between transmission (manual and automatic) and MPG (miles / US gallon). By default our model looks like that: lm(mpg ~ am, data = mtcars). By selecting additional variables the model is being recomputed and the app displays appropriate model's output accordingly.
 
 ```{r, eval=FALSE }
 modelFormula <- reactive({
@@ -43,7 +44,7 @@ adjModel <- reactive({
 User Interface
 ========================================================
 
-In order to regenerate the model user just has to select appriopriate check-boxes. Model will be recomputed immediatelly and user will be able to analyze the model using mean, variance explained by R-squared and some plots like "Normal Q-Q" plot (See the screen-shot below). 
+In order to regenerate the model user just has to click on appriopriate check-boxes. Model will be recomputed immediatelly and user will be able to analyze the model using mean, variance explained by R-squared and some plots like "Normal Q-Q" plot (See the screen-shot below). 
 
 ![The Sample screen-shot of Shiny app](screenshot.png)
 
