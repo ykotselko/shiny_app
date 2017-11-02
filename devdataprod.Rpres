@@ -1,0 +1,52 @@
+Developing Data Products: Shiny Application and Reproducible Pitch
+========================================================
+author: Yuriy Kotselko
+date: 02 November 2017
+autosize: false
+
+Overview
+========================================================
+
+The purpose of this presentation is to demonstrate Shiny's intreractive and reactive capabilities. I've created a simple Shiny application that allows to analyze multivariative linear models in order to find the best fitting model. The application operates with **mtcars** dataset based on 1974 Motor Trend US magazine data.
+
+
+The Shiny application is available by the following link: 
+https://ykotselko.shinyapps.io/ShinyApp/
+
+The Shiny application source code is hosted on GitHub: 
+https://github.com/shiny_app
+
+The presentation has been prepared in RStudio Presenter.
+
+
+How it works
+========================================================
+
+The app builds a linear models that show the relationship between transmission (manual and automatic) and MPG (miles / US gallon). By default our model looks like that: lm(mpg ~ am, data = mtcars). By selecting additional variables the model is being recomputed and the app displays appropriate models parameters accordingly.
+
+```{r, eval=FALSE }
+modelFormula <- reactive({
+    predGroup <- input$predGroup
+    if (is.null(predGroup)) { 
+        "mpg ~ am"
+    } else {
+        paste("mpg ~ am + ", 
+              paste(predGroup,collapse = "+"))
+    }
+})
+adjModel <- reactive({
+    lm(as.formula(modelFormula()),data = mtcars)
+})
+```
+
+
+User Interface
+========================================================
+
+In order to regenerate the model user just has to select appriopriate check-boxes. Model will be recomputed immediatelly and user will be able to analyze the model using mean, variance explained by R-squared and some plots like "Normal Q-Q" plot (See the screen-shot below). 
+
+![The Sample screen-shot of Shiny app](screenshot.png)
+
+Thank you
+========================================================
+
